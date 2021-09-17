@@ -1,0 +1,11 @@
+{
+  "library": "rest-assured",
+  "dateLibrary": "java8",
+  "java8": true,
+  "hideGenerationTimestamp": true,
+  "modelPackage": "bookstore.model",
+  "apiPackage": "bookstore.api",
+  "invokerPackage": "bookstore",
+  "serializableModel": true,
+  "withXml": true
+}
