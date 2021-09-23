@@ -1,0 +1,55 @@
+{
+  "title": "Get list of books from bookStore",
+  "description": "https://demoqa.com/BookStore/v1/Books",
+  "type": "array",
+  "required": [
+    "books"
+  ],
+  "books": {
+    "type": "array",
+    "minItems": 1,
+    "items": {
+      "type": "object",
+      "required": [
+        "isbn",
+        "title",
+        "subTitle",
+        "author",
+        "publish_date",
+        "publisher",
+        "pages",
+        "description",
+        "website"
+      ],
+      "properties": {
+        "isbn": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "subTitle": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "publish_date": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "pages": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

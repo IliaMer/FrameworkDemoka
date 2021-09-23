@@ -10,10 +10,10 @@ public class UserAuthorized implements Serializable {
 
     private static int minLengthPassword = 8;
 
-    public UserAuthorized(String userName, String password, String userId) {
-        this.userName = userName;
-        this.password = password;
-        this.userId = userId;
+    public UserAuthorized() {
+        this.userName = "Zap";
+        this.password = "Zap*12345";
+        this.userId = "b46a165f-1b21-49bc-a531-063ebace5a4a";
     }
 
 

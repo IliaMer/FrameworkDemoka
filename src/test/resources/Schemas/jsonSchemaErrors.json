@@ -1,0 +1,18 @@
+{
+  "title": "Errors for all methods",
+  "description": "https://demoqa.com/BookStore/v1/Book",
+  "type": "object",
+  "required": [
+    "code",
+    "message"
+  ],
+  "minProperties": 2,
+  "properties": {
+    "code": {
+      "type": "number"
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "title": "Delete books from bookStore by UserId",
+  "description": "https://demoqa.com/BookStore/v1/Books?UserId=",
+  "type": "object",
+  "required": [
+    "userId",
+    "message"
+  ],
+  "minProperties": 2,
+  "properties": {
+    "userId": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}
