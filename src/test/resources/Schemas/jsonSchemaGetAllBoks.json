@@ -1,7 +1,7 @@
 {
   "title": "Get list of books from bookStore",
   "description": "https://demoqa.com/BookStore/v1/Books",
-  "type": "array",
+  "type": "object",
   "required": [
     "books"
   ],

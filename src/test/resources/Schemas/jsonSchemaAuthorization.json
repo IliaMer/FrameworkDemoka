@@ -3,6 +3,6 @@
   "description": "https://demoqa.com/Account/v1/Authorized",
   "type": "boolean",
   "required": [
-    true
+    "true"
   ]
 }

@@ -3,13 +3,13 @@
   "description": "https://demoqa.com/BookStore/v1/Books/isbn",
   "type": "object",
   "required": [
-    "userId",
-    "username",
-    "books"
+    "books",
+    "userID",
+    "username"
   ],
-  "minProperties": 3,
+  "minProperties": 0,
   "properties": {
-    "userId": {
+    "userID": {
       "type": "string"
     },
     "username": {
@@ -17,7 +17,7 @@
     },
     "books": {
       "type": "array",
-      "minItems": 1,
+      "minItems": 0,
       "items": {
         "type": "object",
         "required": [

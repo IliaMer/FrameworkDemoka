@@ -2,7 +2,7 @@ package BookStore;
 
 import java.time.LocalDateTime;
 
-public class Books {
+public class Book {
         private String isbn;
         private String title;
         private String subTitle;
@@ -14,8 +14,8 @@ public class Books {
         private String website;
         private String userId;
 
-        public Books(String isbn, String title, String subTitle, String author, LocalDateTime publish_date,
-                     String publisher, int pages, String description, String website, String userId) {
+        public Book(String isbn, String title, String subTitle, String author, LocalDateTime publish_date,
+                    String publisher, int pages, String description, String website, String userId) {
                 this.isbn = isbn;
                 this.title = title;
                 this.subTitle = subTitle;

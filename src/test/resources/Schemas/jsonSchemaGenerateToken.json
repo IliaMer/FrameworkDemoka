@@ -1,26 +1,26 @@
 {
-  "title": "Add books for user, by userId",
-  "description": "https://demoqa.com/BookStore/v1/Books",
+  "title": "Generate token by logopass",
+  "description": "https://demoqa.com/Account/v1/GenerateToken",
   "type": "object",
   "required": [
-    "token",
     "expires",
+    "result",
     "status",
-    "result"
+    "token"
   ],
-  "minProperties": 4,
+  "minProperties": 0,
   "properties":{
     "token": {
-      "type":"String"
+      "type":"string"
     },
     "expires": {
-      "type":"String"
+      "type":"string"
     },
     "status": {
-      "type":"String"
+      "type":"string"
     },
     "result": {
-      "type":"String"
+      "type":"string"
     }
   }
 }

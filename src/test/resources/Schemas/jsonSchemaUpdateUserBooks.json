@@ -1,0 +1,66 @@
+{
+  "title": "Update books by  parameter isbn",
+  "description": "https://demoqa.com/BookStore/v1/Books/isbn",
+  "type": "object",
+  "required": [
+    "books",
+    "userId",
+    "username"
+  ],
+  "minProperties": 0,
+  "properties": {
+    "userId": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "books": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "required": [
+          "isbn",
+          "title",
+          "subTitle",
+          "author",
+          "publish_date",
+          "publisher",
+          "pages",
+          "description",
+          "website"
+        ],
+        "properties": {
+          "isbn": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "subTitle": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "publish_date": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "pages": {
+            "type": "number"
+          },
+          "description": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

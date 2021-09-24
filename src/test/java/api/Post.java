@@ -1,5 +1,7 @@
 package api;
 
+import BookStore.Book;
+import BookStore.UserAuthorized;
 import com.github.fge.jsonschema.SchemaVersion;
 import com.github.fge.jsonschema.cfg.ValidationConfiguration;
 import com.github.fge.jsonschema.main.JsonSchemaFactory;
@@ -14,14 +16,24 @@ public class Post {
     int statusCode;
     String path;
 
-    public Post(String jsonSchemaName, int statusCode, String path) {
+    public Post(UserAuthorized user, String jsonSchemaName, int statusCode, String path) {
         Response response = RestAssured.given()
                 .log().all()
                 .contentType("application/json")
+                .body(user)
                 .post(path);
-        System.out.println(response);
         response.then().body(matchesJsonSchemaInClasspath(jsonSchemaName).using(runJsonSchemaFactory()));
-        Assertions.assertEquals(200, response.statusCode());
+        Assertions.assertEquals(statusCode, response.statusCode());
+    }
+
+    public Post(Book book, String jsonSchemaName, int statusCode, String path) {
+        Response response = RestAssured.given()
+                .log().all()
+                .contentType("application/json")
+                .body(book)
+                .post(path);
+        response.then().body(matchesJsonSchemaInClasspath(jsonSchemaName).using(runJsonSchemaFactory()));
+        Assertions.assertEquals(statusCode, response.statusCode());
     }
 
 
