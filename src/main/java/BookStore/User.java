@@ -4,7 +4,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 import java.io.Serializable;
 
-public class UserAuthorized implements Serializable {
+public class User implements Serializable {
 
     private String userName;
     private String password;
@@ -14,9 +14,9 @@ public class UserAuthorized implements Serializable {
     private static int maxLengthLogin = 12;
 
 
-    public UserAuthorized() {
-        //this.userName = RandomStringUtils.randomAlphabetic(minLengthLogin, maxLengthLogin);
-        this.userName = "qlnskBeR";
+    public User() {
+        this.userName = RandomStringUtils.randomAlphabetic(minLengthLogin, maxLengthLogin);
+        //this.userName = "yfxafwvdIL";
         this.password = "Zap*12345";
         //this.userId = "b46a165f-1b21-49bc-a531-063ebace5a4a";
     }
@@ -44,7 +44,7 @@ public class UserAuthorized implements Serializable {
     }
 
     public static void setMinLengthLogin(int minLengthLogin) {
-        UserAuthorized.minLengthLogin = minLengthLogin;
+        User.minLengthLogin = minLengthLogin;
     }
 
 
@@ -53,7 +53,7 @@ public class UserAuthorized implements Serializable {
     }
 
     public static void setMaxLengthLogin(int maxLengthLogin) {
-        UserAuthorized.maxLengthLogin = maxLengthLogin;
+        User.maxLengthLogin = maxLengthLogin;
     }
 
     //    public String getUserId() {

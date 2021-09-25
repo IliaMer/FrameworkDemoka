@@ -10,24 +10,33 @@ import org.junit.jupiter.api.Assertions;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class Delete {
-    String jsonSchemaName;
-    int statusCode;
-    String path;
 
     public Delete(String jsonSchemaName, int statusCode, String path) {
         Response response = RestAssured.given()
                 .log().all()
                 .contentType("application/json")
                 .delete(path);
-        System.out.println(response);
+        Assertions.assertEquals(statusCode, response.statusCode());
         response.then().body(matchesJsonSchemaInClasspath(jsonSchemaName).using(runJsonSchemaFactory()));
-        Assertions.assertEquals(200, response.statusCode());
+
     }
 
+    public Delete(String jsonSchemaName, int statusCode, String path, String token) {
+        Response response = RestAssured.given()
+                .log().all()
+                .contentType("application/json")
+                .header("Authorization", "Bearer " + token)
+                .delete(path);
+        Assertions.assertEquals(statusCode, response.statusCode());
+        response.then().body(matchesJsonSchemaInClasspath(jsonSchemaName).using(runJsonSchemaFactory()));
+
+    }
 
     private JsonSchemaFactory runJsonSchemaFactory() {
         JsonSchemaFactory jsonSchemaFactory = JsonSchemaFactory.newBuilder().setValidationConfiguration(ValidationConfiguration.newBuilder()
                 .setDefaultVersion(SchemaVersion.DRAFTV4).freeze()).freeze();
         return jsonSchemaFactory;
     }
+
+
 }

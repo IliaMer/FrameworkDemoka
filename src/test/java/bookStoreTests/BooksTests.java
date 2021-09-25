@@ -1,9 +1,5 @@
 package bookStoreTests;
 
-import BookStore.UserAuthorized;
-import api.Post;
-import org.junit.jupiter.api.Test;
-
 public class BooksTests {
 
 
