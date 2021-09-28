@@ -6,7 +6,7 @@
     "userId",
     "message"
   ],
-  "minProperties": 2,
+  "minProperties": 0,
   "properties": {
     "userId": {
       "type": "string"

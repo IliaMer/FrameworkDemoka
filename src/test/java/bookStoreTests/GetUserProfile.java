@@ -1,14 +1,13 @@
 package bookStoreTests;
 
-
 import BookStore.User;
-import api.Delete;
+import api.Get;
 import api.Post;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class DeleteUser {
+public class GetUserProfile {
     private static User user = new User();
     private String userId;
     private String token;
@@ -20,32 +19,21 @@ public class DeleteUser {
         Post getToken = new Post(user, "https://demoqa.com/Account/v1/GenerateToken");
         token = getToken.getResponse().getBody().jsonPath().getString("token");
         Post login = new Post(user, "https://demoqa.com/Account/v1/Authorized");
-
     }
 
-    // Тест падает из-за того, что возвращается statusCode 204 вместо 200.
-    // СХЕМА ОТВЕТА НЕ СООТВЕТСТВУЕТ СХЕМЕ В СВАГГЕРЕ, все statusCode перепутаны!!!
     @Test
-    @DisplayName("Delete user")
+    @DisplayName("Get user by userId")
     @Order(1)
-    void deleteUser() {
-        Delete delete = new Delete("jsonSchemas/Errors.json", 200,
+    void GetUser() {
+        Get get = new Get("jsonSchemas/UpdateUserBooks.json", 200,
                 "https://demoqa.com/Account/v1/User/" + userId, token);
     }
 
     @Test
-    @DisplayName("Delete without auth")
+    @DisplayName("Get user error with invalid userId")
     @Order(2)
-    void deleteUserErrorWithoutAuthorization() {
-        Delete delete = new Delete("jsonSchemas/Errors.json", 204,
-                "https://demoqa.com/Account/v1/User/" + userId);
-    }
-
-    @Test
-    @DisplayName("Delete with invalid userId")
-    @Order(3)
-    void deleteUserErrorWithInvalidUserId() {
-        Delete delete = new Delete("jsonSchemas/Errors.json", 401,
+    void GetUserErrorWithInvalidUserId() {
+        Get get = new Get("jsonSchemas/Errors.json", 401,
                 "https://demoqa.com/Account/v1/User/" + RandomStringUtils.randomAlphabetic(20), token);
     }
 }

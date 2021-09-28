@@ -18,27 +18,27 @@ public class UserAccountTests {
     @Test
     @Order(1)
     void CreateUserTest() {
-        Post post = new Post(user, "Schemas/jsonSchemaCreateUser.json", 201,
+        Post post = new Post(user, "jsonSchemas/CreateUser.json", 201,
                 "https://demoqa.com/Account/v1/User");
     }
 
 //    @Test
 //    void CreateUserChekStatusCode406Test() {
-//        Post post = new Post(user, "Schemas/jsonSchemaCreateUser.json", 406,
+//        Post post = new Post(user, "Schemas/CreateUser.json", 406,
 //                "https://demoqa.com/Account/v1/User");
 //    }
 
     @Test
     @Order(2)
     void GenerateTokenTest() {
-        Post post = new Post(user, "Schemas/jsonSchemaGenerateToken.json", 200,
+        Post post = new Post(user, "jsonSchemas/GenerateToken.json", 200,
                 "https://demoqa.com/Account/v1/GenerateToken");
     }
 
     @Test
     @Order(3)
     void AuthorizationTest() {
-        Post post = new Post(user, "Schemas/jsonSchemaAuthorization.json", 200,
+        Post post = new Post(user, "jsonSchemas/Authorization.json", 200,
                 "https://demoqa.com/Account/v1/Authorized");
     }
 }

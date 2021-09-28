@@ -1,6 +1,7 @@
 package BookStore;
 
 import java.time.LocalDateTime;
+import java.util.Random;
 
 public class Book {
         private String isbn;
@@ -27,6 +28,11 @@ public class Book {
                 this.website = website;
                 this.userId = userId;
         }
+
+        public Book() {
+
+        }
+
 
         public String getIsbn() {
                 return isbn;

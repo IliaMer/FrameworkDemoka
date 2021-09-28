@@ -44,6 +44,7 @@ public class Post {
 
     }
 
+
     private JsonSchemaFactory runJsonSchemaFactory() {
         JsonSchemaFactory jsonSchemaFactory = JsonSchemaFactory.newBuilder().setValidationConfiguration(ValidationConfiguration.newBuilder()
                 .setDefaultVersion(SchemaVersion.DRAFTV4).freeze()).freeze();

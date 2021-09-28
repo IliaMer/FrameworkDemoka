@@ -7,7 +7,7 @@
     "isbn",
     "message"
   ],
-  "minProperties": 3,
+  "minProperties": 1,
   "properties": {
     "userId": {
       "type": "string"

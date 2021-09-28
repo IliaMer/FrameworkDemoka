@@ -19,7 +19,7 @@ public class Authorization {
     @DisplayName("User authorization")
     @Order(1)
     void authorization() {
-        Post post = new Post(user, "Schemas/jsonSchemaAuthorization.json", 200,
+        Post post = new Post(user, "jsonSchemas/Authorization.json", 200,
                 "https://demoqa.com/Account/v1/Authorized");
     }
 
@@ -28,7 +28,7 @@ public class Authorization {
     @DisplayName("User authorization with invalid params")
     @Order(2)
     void authorizationError() {
-        Post post = new Post(new User(), "Schemas/jsonSchemaErrors.json", 400,
+        Post post = new Post(new User(), "jsonSchemas/Errors.json", 400,
                 "https://demoqa.com/Account/v1/Authorized");
     }
 
@@ -38,7 +38,7 @@ public class Authorization {
     @Order(3)
     void authorizationErrorWithInvalidPassword() {
         user.setPassword(RandomStringUtils.randomAlphabetic(10));
-        Post post = new Post(user, "Schemas/jsonSchemaErrors.json", 400,
+        Post post = new Post(user, "jsonSchemas/Errors.json", 400,
                 "https://demoqa.com/Account/v1/Authorized");
     }
 }

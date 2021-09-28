@@ -16,12 +16,8 @@ public class User implements Serializable {
 
     public User() {
         this.userName = RandomStringUtils.randomAlphabetic(minLengthLogin, maxLengthLogin);
-        //this.userName = "yfxafwvdIL";
         this.password = "Zap*12345";
-        //this.userId = "b46a165f-1b21-49bc-a531-063ebace5a4a";
     }
-
-
 
     public String getUserName() {
         return userName;
@@ -56,13 +52,7 @@ public class User implements Serializable {
         User.maxLengthLogin = maxLengthLogin;
     }
 
-    //    public String getUserId() {
-//        return userId;
-//    }
 
-//    public void setUserId(String userId) {
-//        this.userId = userId;
-//    }
 
     @Override
     public String toString() {
