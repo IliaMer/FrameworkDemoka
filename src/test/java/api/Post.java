@@ -34,10 +34,11 @@ public class Post {
                 .post(path);
     }
 
-    public Post(ListOfBooks list, String jsonSchemaName, int statusCode, String path) {
+    public Post(ListOfBooks list, String jsonSchemaName, int statusCode, String path, String token) {
         this.response = RestAssured.given()
                 .log().all()
                 .contentType("application/json")
+                .header("Authorization", "Bearer " + token)
                 .body(list)
                 .post(path);
         Assertions.assertEquals(statusCode, response.statusCode());

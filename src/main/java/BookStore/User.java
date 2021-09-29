@@ -43,23 +43,11 @@ public class User implements Serializable {
         User.minLengthLogin = minLengthLogin;
     }
 
-
     public static int getMaxLengthLogin() {
         return maxLengthLogin;
     }
 
     public static void setMaxLengthLogin(int maxLengthLogin) {
         User.maxLengthLogin = maxLengthLogin;
-    }
-
-
-
-    @Override
-    public String toString() {
-        return "UserAuthorized{" +
-                "userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                //", userId='" + userId + '\'' +
-                '}';
     }
 }
