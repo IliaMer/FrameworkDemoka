@@ -37,6 +37,4 @@ public class Delete {
                 .setDefaultVersion(SchemaVersion.DRAFTV4).freeze()).freeze();
         return jsonSchemaFactory;
     }
-
-
 }

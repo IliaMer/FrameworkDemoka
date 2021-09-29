@@ -10,7 +10,7 @@ public class User implements Serializable {
     private String password;
     //private String userId;
 
-    private static int minLengthLogin = 8;
+    private static int minLengthLogin = 4;
     private static int maxLengthLogin = 12;
 
 

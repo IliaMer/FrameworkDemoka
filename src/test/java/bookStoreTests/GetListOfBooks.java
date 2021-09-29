@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class GetListOfBooks {
     @Test
     @DisplayName("Get All books from Book Store")
-    void GetAllBooks() {
+    void getAllBooks() {
         Get getBooks = new Get("jsonSchemas/GetAllBooks.json", 200,
                 "https://demoqa.com/BookStore/v1/Books");
     }

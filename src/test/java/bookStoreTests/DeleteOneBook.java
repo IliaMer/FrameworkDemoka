@@ -1,14 +1,17 @@
 package bookStoreTests;
 
+import BookStore.Book;
 import BookStore.User;
+import api.Delete;
 import api.Get;
 import api.Post;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class GetUserProfile {
+public class DeleteOneBook {
+    private static Book book = new Book();
     private static User user = new User();
+    private String isbn;
     private String userId;
     private String token;
 
@@ -19,21 +22,15 @@ public class GetUserProfile {
         Post getToken = new Post(user, "https://demoqa.com/Account/v1/GenerateToken");
         token = getToken.getResponse().getBody().jsonPath().getString("token");
         Post login = new Post(user, "https://demoqa.com/Account/v1/Authorized");
+        Get getBooks = new Get("https://demoqa.com/BookStore/v1/Books");
+        isbn = getBooks.getResponse().getBody().jsonPath().getString("isbn");
     }
 
     @Test
-    @DisplayName("Get user by userId")
+    @DisplayName("Delete one book from user profile")
     @Order(1)
-    void GetUser() {
-        Get get = new Get("jsonSchemas/EditUserBook.json", 200,
+    void deleteBookFromUserProfile() {
+        Delete delete = new Delete("jsonSchemas/DeleteBookStringObject.json", 204,
                 "https://demoqa.com/Account/v1/User/" + userId, token);
-    }
-
-    @Test
-    @DisplayName("Get user error with invalid userId")
-    @Order(2)
-    void GetUserErrorWithInvalidUserId() {
-        Get get = new Get("jsonSchemas/Errors.json", 401,
-                "https://demoqa.com/Account/v1/User/" + RandomStringUtils.randomAlphabetic(20), token);
     }
 }

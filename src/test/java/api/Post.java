@@ -1,6 +1,7 @@
 package api;
 
 import BookStore.Book;
+import BookStore.ListOfBooks;
 import BookStore.User;
 import com.github.fge.jsonschema.SchemaVersion;
 import com.github.fge.jsonschema.cfg.ValidationConfiguration;
@@ -33,11 +34,11 @@ public class Post {
                 .post(path);
     }
 
-    public Post(Book book, String jsonSchemaName, int statusCode, String path) {
+    public Post(ListOfBooks list, String jsonSchemaName, int statusCode, String path) {
         this.response = RestAssured.given()
                 .log().all()
                 .contentType("application/json")
-                .body(book)
+                .body(list)
                 .post(path);
         Assertions.assertEquals(statusCode, response.statusCode());
         response.then().body(matchesJsonSchemaInClasspath(jsonSchemaName).using(runJsonSchemaFactory()));

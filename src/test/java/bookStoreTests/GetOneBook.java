@@ -17,8 +17,17 @@ public class GetOneBook {
 
     @Test
     @DisplayName("Get one book from Book Store by isbn")
-    void GetOneBook() {
+    @Order(1)
+    void getOneBook() {
         Get getBook = new Get("jsonSchemas/GetOneBook.json", 200,
+                "https://demoqa.com/BookStore/v1/Book?ISBN=9781449337711");
+    }
+
+    @Test
+    @DisplayName("Get one book from Book Store by invalid isbn")
+    @Order(2)
+    void getOneBookByInvalidIsbn() {
+        Get getBook = new Get("jsonSchemas/Errors.json", 400,
                 "https://demoqa.com/BookStore/v1/Book?ISBN=" + isbn);
     }
 }

@@ -14,7 +14,7 @@ public class Get {
     Response response;
 
     public Get(String jsonSchemaName, int statusCode, String path) {
-        Response response = RestAssured.given()
+        this.response = RestAssured.given()
                 .log().all()
                 .contentType("application/json")
                 .get(path);
@@ -23,7 +23,7 @@ public class Get {
     }
 
     public Get(String jsonSchemaName, int statusCode, String path, String token) {
-        Response response = RestAssured.given()
+        this.response = RestAssured.given()
                 .log().all()
                 .contentType("application/json")
                 .header("Authorization", "Bearer " + token)
@@ -33,7 +33,7 @@ public class Get {
     }
 
     public Get(String path) {
-        Response response = RestAssured.given()
+        this.response = RestAssured.given()
                 .log().all()
                 .contentType("application/json")
                 .get(path);
